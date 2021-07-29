@@ -1,0 +1,63 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#homePage{
+    background: rgb(145,187,229);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#mat{
+    /* background: url(./medias/img/background/mat-de-cocagne.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 60px; */
+}
+
+.home-view{
+    position: relative;
+    background: url(./medias/img/background/mat-de-cocagne-complet.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom ;
+    max-width: 700px;
+}
+
+.item-player1, .item-player2{
+    position: absolute;
+    bottom: 0;
+    width: 40px;
+    animation: 3s infinite alternate jump;
+}
+
+.item-player1{
+    right: 0;
+    animation-delay: 1s;
+}
+
+@keyframes jump {
+    from{
+        bottom: 0;
+    }
+    25%{
+        bottom: 70%;
+    }
+    40%{
+        bottom: 0;
+    }
+    50%{
+        bottom: 50%;
+    }
+    60%{
+        bottom: 0;
+    }
+    80%{
+        bottom: 60%;
+    }
+    100%{
+        bottom: 0%;
+    }
+}
