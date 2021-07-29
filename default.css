@@ -3,18 +3,13 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    font-family: "Roboto", sans-serif;
+}
 #homePage{
     background: rgb(145,187,229);
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-#mat{
-    /* background: url(./medias/img/background/mat-de-cocagne.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 60px; */
 }
 
 .home-view{
@@ -26,6 +21,12 @@
     max-width: 700px;
 }
 
+h1{
+    letter-spacing: .2em;
+    font-size: x-large;
+    margin-top: 2em;
+    color: aliceblue;
+}
 .item-player1, .item-player2{
     position: absolute;
     bottom: 0;
