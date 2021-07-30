@@ -40,10 +40,10 @@ function resetGame(){
     document.querySelector('.elanValueSecond').innerHTML = elan;
     document.querySelector('.jumpScoreValueFirst').innerHTML = jumpScorePlayer1;
     document.querySelector('.jumpScoreValueSecond').innerHTML = jumpScorePlayer2;
-    itemPlayer1.style.bottom = '-30px';
-    // itemPlayer1.style.right = '0';
+    itemPlayer1.style.bottom = '40px';
+    itemPlayer1.style.width = '-30px';
     itemPlayer2.style.bottom = '-30px';
-    
+    itemPlayer2.style.bottom = '40px';
     activePlayer = 0;
 
     newRound();
@@ -147,11 +147,19 @@ function jump(){
 function playerOneVictory(){
     itemPlayer1.style.bottom = "50%";
     itemPlayer1.style.width = "150px";
-    alert('Player 1 win');
+    let victory = document.createElement('div');
+        victory.className = ('victory');
+        victory.textContent = ('Le joueur 1 a remporté le trophé !!!!!');
+        gameView.appendChild(victory);
+    
 }
 
 function playerTwoVictory(){
-    itemPlayer1.style.bottom = "50%";
-    itemPlayer1.style.width = "150px";
-    alert('Player 2 win');
+    itemPlayer2.style.bottom = "50%";
+    itemPlayer2.style.width = "150px";
+    let victory = document.createElement('div');
+        victory.className = ('victory');
+        victory.textContent = ('Le joueur 2 a remporté le trophé !!!!!');
+        gameView.appendChild(victory);
+    
 }

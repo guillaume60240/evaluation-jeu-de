@@ -6,8 +6,12 @@
 body{
     font-family: "Roboto", sans-serif;
     width: 100%;
+    min-width: 300px;
     height: 100vh;
-    background: floralwhite;
+    background: url(./medias/img/background/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 #homePage{
     background: rgb(145,187,229);
@@ -117,7 +121,32 @@ header ul li:hover{
     background-repeat: no-repeat;
     background-position: bottom ;
 }
-
+.game-anim::before{
+    content: "";
+    position: fixed;
+    height: 75%;
+    width: 50%;
+    background: url(./medias/img/background/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    filter: blur(50px);
+    left: 70px;
+}
+.game-anim::after{
+    content: "";
+    position: fixed;
+    height: 75%;
+    width: 50%;
+    background: url(./medias/img/background/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    filter: blur(50px);
+    right: 70px;
+}
 .board{
     justify-content: space-around;
     top: 100px;
@@ -138,7 +167,7 @@ header ul li:hover{
 }
 
 .footer{
-    background: floralwhite;
+    background: transparent;
 }
 .dice-container{
     height: 60px;
@@ -147,6 +176,19 @@ header ul li:hover{
     width: 60px;
     height: 60px;
     position: absolute;
+}
+.victory{
+    position: absolute;
+    top: 75%;
+    right: 50%;
+    transform: translate(25%);
+    background: #3339;
+    color: floralwhite;
+    width: 300px;
+    padding: 15px 10px;
+    text-align: center;
+    border-radius: 10px;
+    
 }
 /* media queries  */
 
@@ -170,7 +212,12 @@ header ul li:hover{
         left: -25px;
     }
 }
-
+@media screen and (min-width: 700px) {
+    #gameView{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 @media  screen and (max-height: 770px) {
     header h1{
         font-size: x-large !important;
