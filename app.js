@@ -4,7 +4,7 @@ let elanFirstPlayer;
 let elanSecondPlayer;
 let activePlayer = 0;
 let elan = 0;
-// let jumpScore = 0;
+
 let jetonPlayer1 = document.querySelector('.jetonPlayer1');
 let jetonPlayer2 = document.querySelector('.jetonPlayer2');
 let itemPlayer1 = document.querySelector('.player1');
@@ -31,6 +31,7 @@ function startGame(){
     
     newRound();
 }
+
 function resetGame(){
     jumpScorePlayer1 = 0;
     jumpScorePlayer2 = 0;
@@ -40,7 +41,9 @@ function resetGame(){
     document.querySelector('.jumpScoreValueFirst').innerHTML = jumpScorePlayer1;
     document.querySelector('.jumpScoreValueSecond').innerHTML = jumpScorePlayer2;
     itemPlayer1.style.bottom = '-30px';
+    // itemPlayer1.style.right = '0';
     itemPlayer2.style.bottom = '-30px';
+    
     activePlayer = 0;
 
     newRound();
@@ -90,7 +93,7 @@ function rollDice(){
 } 
 
 function getScore(score){
-    console.log('score' + score);
+    
     if( score === 1 ){
         elan = 0;  
     } else {
@@ -117,7 +120,7 @@ function jump(){
         document.querySelector('.elanValueFirst').innerHTML = elan;
         document.querySelector('.jumpScoreValueFirst').innerHTML = jumpScorePlayer1;
         itemPlayer1.style.bottom = 'calc('+ jumpScorePlayer1 + '% - 20px)';
-        itemPlayer1.style.right = "-15%";
+        // itemPlayer1.style.right = "-15%";
     } else{
         jumpScorePlayer2 += elan;
         if(jumpScorePlayer2 >= 100){
@@ -127,7 +130,7 @@ function jump(){
         document.querySelector('.elanValueSecond').innerHTML = elan;
         document.querySelector('.jumpScoreValueSecond').innerHTML = jumpScorePlayer2;
         itemPlayer2.style.bottom = 'calc(' + jumpScorePlayer2  + '% - 20px)';
-        itemPlayer2.style.left = "0";
+        // itemPlayer2.style.left = "0";
     }
     if(jumpScorePlayer1 === 100 || jumpScorePlayer2 === 100){
         if(activePlayer === 1){
