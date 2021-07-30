@@ -7,6 +7,7 @@ body{
     font-family: "Roboto", sans-serif;
     width: 100vw;
     height: 100vh;
+    background: floralwhite;
 }
 #homePage{
     background: rgb(145,187,229);
@@ -39,6 +40,15 @@ h1{
 .item-player1{
     right: 0;
     animation-delay: 1s;
+}
+
+.jetonPlayer1, .jetonPlayer2{
+    border-radius: 50%;
+    background: red;
+    opacity: 0;
+    padding: 2px 10px;
+    margin-left: 5px;
+    transition: all ease-in-out .5s;
 }
 
 @keyframes jump {
@@ -109,15 +119,16 @@ header ul li:hover{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    bottom: 25%;
+    top: 100px;
     height: 200px;
     margin-left: 20px;
 }
 
 .player1, .player2{
     position: absolute;
-    bottom: 0;
+    bottom: -30px;
     width: 40px;
+    transition: all ease-in-out .5s;
 }
 .player1{
     right: 0;
