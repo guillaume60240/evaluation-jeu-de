@@ -1,7 +1,5 @@
 let jumpScorePlayer1 = 0;
 let jumpScorePlayer2 = 0;
-let elanFirstPlayer;
-let elanSecondPlayer;
 let activePlayer = 0;
 let elan = 0;
 
@@ -20,10 +18,13 @@ document.getElementById('newGameHome').onclick = startGame;
 document.getElementById('reset').onclick = resetGame;
 document.getElementById('rollDice').onclick = rollDice;
 document.getElementById('jump').onclick = jump;
+let soundValid = document.getElementById('soundControl');
+    soundValid.onclick = soundControl;
 
 function homeRestart(){
     location.reload();
 }
+
 function startGame(){
     // affichage de l'ecran de jeu 
     home.remove();
@@ -33,6 +34,10 @@ function startGame(){
 }
 
 function resetGame(){
+    let victoryView = document.querySelector('.victory');
+        if(victoryView){
+            victoryView.remove();
+        }
     jumpScorePlayer1 = 0;
     jumpScorePlayer2 = 0;
     elan = 0;
@@ -40,10 +45,10 @@ function resetGame(){
     document.querySelector('.elanValueSecond').innerHTML = elan;
     document.querySelector('.jumpScoreValueFirst').innerHTML = jumpScorePlayer1;
     document.querySelector('.jumpScoreValueSecond').innerHTML = jumpScorePlayer2;
-    itemPlayer1.style.bottom = '40px';
-    itemPlayer1.style.width = '-30px';
+    itemPlayer1.style.bottom = '-30px';
+    itemPlayer1.style.width = '40px';
     itemPlayer2.style.bottom = '-30px';
-    itemPlayer2.style.bottom = '40px';
+    itemPlayer2.style.width = '40px';
     activePlayer = 0;
 
     newRound();
@@ -66,6 +71,8 @@ function rollDice(){
     let interval = null;
     let counter = 1;
     
+    soundDice();
+
     function diceAnimation(){
         counter++;
         if(counter == 11){
@@ -96,6 +103,7 @@ function getScore(score){
     
     if( score === 1 ){
         elan = 0;  
+        soundLoose();
     } else {
         elan += score; 
     }
@@ -111,6 +119,7 @@ function getScore(score){
 }
 
 function jump(){
+    soundJump();
     if(activePlayer === 1){
         jumpScorePlayer1 += elan;
         if(jumpScorePlayer1 >= 100){
@@ -120,7 +129,7 @@ function jump(){
         document.querySelector('.elanValueFirst').innerHTML = elan;
         document.querySelector('.jumpScoreValueFirst').innerHTML = jumpScorePlayer1;
         itemPlayer1.style.bottom = 'calc('+ jumpScorePlayer1 + '% - 20px)';
-        // itemPlayer1.style.right = "-15%";
+        
     } else{
         jumpScorePlayer2 += elan;
         if(jumpScorePlayer2 >= 100){
@@ -130,7 +139,7 @@ function jump(){
         document.querySelector('.elanValueSecond').innerHTML = elan;
         document.querySelector('.jumpScoreValueSecond').innerHTML = jumpScorePlayer2;
         itemPlayer2.style.bottom = 'calc(' + jumpScorePlayer2  + '% - 20px)';
-        // itemPlayer2.style.left = "0";
+       
     }
     if(jumpScorePlayer1 === 100 || jumpScorePlayer2 === 100){
         if(activePlayer === 1){
@@ -139,27 +148,62 @@ function jump(){
             playerTwoVictory();
         }
     } else{
-        console.log(jumpScorePlayer1 + 'player2' +jumpScorePlayer2);
         newRound();
     }
 }
 
 function playerOneVictory(){
+    soundVictory();
     itemPlayer1.style.bottom = "50%";
     itemPlayer1.style.width = "150px";
     let victory = document.createElement('div');
         victory.className = ('victory');
         victory.textContent = ('Le joueur 1 a remporté le trophé !!!!!');
         gameView.appendChild(victory);
-    
 }
 
 function playerTwoVictory(){
+    soundVictory();
     itemPlayer2.style.bottom = "50%";
     itemPlayer2.style.width = "150px";
     let victory = document.createElement('div');
         victory.className = ('victory');
         victory.textContent = ('Le joueur 2 a remporté le trophé !!!!!');
         gameView.appendChild(victory);
-    
+}
+
+function soundControl(){
+    if(soundValid.value == 1){
+        soundValid.value = 0;
+    } else{
+        soundValid.value = 1;
+    }
+}
+
+function soundDice(){
+    if(soundValid.value ==1){
+        const soundDice = new Audio('./medias/sounds/dice.wav');
+                soundDice.play();
+    }
+}
+
+function soundLoose(){
+    if(soundValid.value == 1){
+        const soundLoose = new Audio('./medias/sounds/fail.mp3');
+                soundLoose.play();
+    }
+}
+
+function soundJump(){
+    if(soundValid.value == 1){
+        const soundJump = new Audio('./medias/sounds/jump.mp3');
+                soundJump.play();
+    }
+}
+
+function soundVictory(){
+    if(soundValid.value == 1){
+        const soundVictory = new Audio('./medias/sounds/victory.mp3');
+                soundVictory.play();
+    }
 }
