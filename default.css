@@ -14,9 +14,10 @@ body{
     background-position: center;
 }
 #homePage{
-    background: rgb(145,187,229);
+    /* background: rgb(145,187,229);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background: transparent;
 }
 
 .home-view{
@@ -26,6 +27,34 @@ body{
     background-repeat: no-repeat;
     background-position: bottom ;
     max-width: 700px;
+}
+.home-view::before{
+    content: "";
+    position: fixed;
+    height: 75%;
+    width: 50%;
+    background: url(./medias/img/background/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    filter: blur(50px);
+    left: 70px;
+    top: 150px;
+}
+.home-view::after{
+    content: "";
+    position: fixed;
+    height: 75%;
+    width: 50%;
+    background: url(./medias/img/background/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    filter: blur(50px);
+    right: 70px;
+    top: 150px;
 }
 
 h1{

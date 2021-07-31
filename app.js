@@ -109,11 +109,15 @@ function getScore(score){
     }
     if(activePlayer === 1){
         document.querySelector('.elanValueFirst').innerHTML = elan;
+        document.querySelector('.elanValueFirst').style.color = 'red';
     }  else{
         document.querySelector('.elanValueSecond').innerHTML = elan;
+        document.querySelector('.elanValueSecond').style.color = 'red';
     }
 
     if(elan === 0){
+        document.querySelector('.elanValueFirst').style.color = '#333';
+        document.querySelector('.elanValueSecond').style.color = '#333';
         newRound();
     }
 }
@@ -127,6 +131,7 @@ function jump(){
         }
         elan = 0;
         document.querySelector('.elanValueFirst').innerHTML = elan;
+        document.querySelector('.elanValueFirst').style.color = '#333';
         document.querySelector('.jumpScoreValueFirst').innerHTML = jumpScorePlayer1;
         itemPlayer1.style.bottom = 'calc('+ jumpScorePlayer1 + '% - 20px)';
         
@@ -137,6 +142,7 @@ function jump(){
         }
         elan = 0;
         document.querySelector('.elanValueSecond').innerHTML = elan;
+        document.querySelector('.elanValueSecond').style.color = '#333';
         document.querySelector('.jumpScoreValueSecond').innerHTML = jumpScorePlayer2;
         itemPlayer2.style.bottom = 'calc(' + jumpScorePlayer2  + '% - 20px)';
        
